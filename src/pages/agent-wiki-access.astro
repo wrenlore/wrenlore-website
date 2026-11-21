@@ -1,0 +1,30 @@
+---
+import InfoPage from '../components/InfoPage.astro';
+---
+<InfoPage title="Giving AI agents wiki access without a shared admin token" description="The concrete permission, attribution and retry model behind WrenLore’s MCP server." eyebrow="MCP design notes" updated="21 November 2026" schemaType="Article">
+  <p class="article-deck">A wiki integration gets dangerous quickly when every agent uses the same administrator credential. You lose the person behind an action, revocation becomes all-or-nothing, and a retry after a timeout can apply the same edit twice. WrenLore’s MCP V1 was built around those failure modes.</p>
+
+  <h2>The connection belongs to a user</h2>
+  <p>A workspace administrator enables MCP agent connections. A user then creates a named connection, chooses read-only or read/write access, optionally restricts it to selected spaces, sets an expiry and copies the bearer token from a once-only dialog.</p>
+  <p>The stored record contains a hash of the secret. The token identifies both the owning user and the agent label. Tool arguments cannot replace either identity.</p>
+
+  <h2>Permission checks happen on every call</h2>
+  <p>The token is an additional boundary, not a parallel permission system. WrenLore checks the owner’s current workspace membership, account state, space membership and inherited page restrictions for each operation. It also applies the token’s read/write mode, space scope, expiry and revocation state.</p>
+  <p>If a user loses access to a page, their agent loses it too. Disabling MCP for the workspace blocks existing tokens. A read-only token does not discover write tools and write calls are rejected again at the operation layer.</p>
+
+  <h2>Ten tools, deliberately bounded</h2>
+  <p>V1 exposes context, spaces, page trees, search, page reads, creation, block-level edits, comments and page history. Reads return bounded Markdown and continuation offsets instead of dumping an entire workspace into one response.</p>
+  <p>The first version excludes deletion, moves, sharing, permission changes, history restoration and arbitrary attachment uploads. Those operations are possible to design. They were left out because their recovery and approval semantics deserve separate work.</p>
+
+  <h2>Writes use revisions and idempotency keys</h2>
+  <p>An agent reads a page, receives its current revision and prepares explicit operations against stable block references. The write includes that expected revision and a client-generated request key.</p>
+  <p>A human edit between the read and write returns a revision conflict. The agent must read again and prepare a new operation. If a network acknowledgement is lost, the original request can be retried with the same key and identical arguments. WrenLore replays the receipt instead of applying the edit twice. Reusing the key with a different body is rejected.</p>
+
+  <h2>Attribution survives the integration</h2>
+  <p>Comments, page history and audit entries display the owning user and named agent connection. The useful record is “Leo, via Francis”, not a generic integration account. That attribution says which configured connection acted; it is not a cryptographic claim about which model produced the text.</p>
+
+  <h2>What this design still leaves open</h2>
+  <p>MCP V1 uses explicit bearer-token authentication rather than OAuth. Clients need secure header configuration and remote Streamable HTTP support. Service accounts, delegated organisational roles and human approval workflows are separate problems. A bounded first surface gives those later decisions somewhere sane to start.</p>
+
+  <div class="article-links"><a href="https://github.com/wrenlore/wrenlore/blob/master/docs/MCP.md">Read the full MCP V1 documentation</a><a href="/mcp-knowledge-base/">Evaluate WrenLore as an MCP knowledge base</a><a href="https://github.com/wrenlore/wrenlore">Inspect the source</a></div>
+</InfoPage>

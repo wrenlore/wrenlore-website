@@ -1,0 +1,24 @@
+---
+import InfoPage from '../components/InfoPage.astro';
+---
+<InfoPage title="About WrenLore" description="WrenLore is an AGPL-licensed, self-hosted knowledge base for teams that want people and AI agents working from the same governed source." eyebrow="The project" schemaType="AboutPage">
+  <h2>What WrenLore is</h2>
+  <p>WrenLore is a collaborative wiki for operational knowledge: runbooks, architecture decisions, policies, project context and the awkward notes that keep a team functioning. It runs on infrastructure controlled by its operator and combines human editing with permission-aware AI search and MCP access.</p>
+  <p>The project is derived from the Docmost Community codebase. WrenLore maintains its own product direction, releases and security work. It is not affiliated with or endorsed by Docmost, Inc.</p>
+
+  <h2>Why it exists</h2>
+  <p>Most company knowledge now has two audiences. People need a usable editor, comments, history and sensible permissions. AI tools need structured retrieval and tightly bounded ways to act. Running those as separate systems creates duplicated permissions, stale indexes and shared service accounts nobody can properly attribute.</p>
+  <p>WrenLore keeps those concerns together. A person owns an agent connection. The token cannot exceed that person’s current access. Reads stay permission-filtered. Writes carry user-via-agent attribution and revision checks.</p>
+
+  <h2>Project principles</h2>
+  <ul>
+    <li><strong>Operator control:</strong> the application, PostgreSQL database, Redis and stored files run in the operator’s environment.</li>
+    <li><strong>Source availability:</strong> public releases are available under AGPL-3.0, including deployment-specific obligations for network use.</li>
+    <li><strong>Human-owned knowledge:</strong> AI works from pages that people can inspect, correct and maintain.</li>
+    <li><strong>Bounded agent access:</strong> machine access is explicit, scoped, revocable and visible in history.</li>
+    <li><strong>Plain limitations:</strong> WrenLore is a young project. It does not pretend to replace every Confluence macro, every enterprise-search connector or every hosted support contract.</li>
+  </ul>
+
+  <h2>Governance and contribution</h2>
+  <p>Development happens in the public <a href="https://github.com/wrenlore/wrenlore">WrenLore GitHub repository</a>. Releases, issues and pull requests are visible there. Security reports should follow the repository’s <a href="https://github.com/wrenlore/wrenlore/security">private security reporting route</a>.</p>
+</InfoPage>

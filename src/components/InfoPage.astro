@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+interface Props { title: string; description: string; eyebrow?: string; updated?: string; schemaType?: 'AboutPage' | 'Article' | 'WebPage' }
+const { title, description, eyebrow, updated, schemaType = 'WebPage' } = Astro.props;
+const schema = { '@context': 'https://schema.org', '@type': schemaType, headline: title, name: title, description, url: Astro.url.href, ...(updated ? { dateModified: updated } : {}), isPartOf: { '@type': 'WebSite', name: 'WrenLore', url: Astro.site } };
+---
+<BaseLayout title={`${title} | WrenLore`} description={description} schema={schema}>
+  <Header />
+  <main>
+    <section class="page-hero shell narrow info-hero">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1>{title}</h1>
+      <p class="lead">{description}</p>
+      {updated && <p class="page-updated">Last updated {updated}</p>}
+    </section>
+    <article class="section shell narrow longform"><slot /></article>
+  </main>
+  <Footer />
+</BaseLayout>

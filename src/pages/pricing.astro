@@ -1,0 +1,23 @@
+---
+import InfoPage from '../components/InfoPage.astro';
+---
+<InfoPage title="Pricing" description="WrenLore’s public software has no per-user licence fee. You run it, and you pay the infrastructure and model costs you choose." eyebrow="AGPL-3.0">
+  <div class="price-card"><p class="eyebrow">Public software</p><strong>€0</strong><span>per user / month in WrenLore licence fees</span></div>
+
+  <h2>What is included</h2>
+  <p>The public WrenLore repository contains the collaborative wiki, Docker deployment files, SSO and audit capabilities, AI features and the MCP agent interface. It is licensed under AGPL-3.0. There is no mandatory WrenLore cloud account and no feature-unlock key.</p>
+
+  <h2>What still costs money</h2>
+  <p>Self-hosted does not mean cost-free. The operator provides the Linux host or private cloud, PostgreSQL storage, backups, TLS, monitoring and staff time. AI features can also create model or GPU costs depending on whether the deployment uses a remote API or local inference.</p>
+  <ul>
+    <li>Compute, storage, backups and network traffic</li>
+    <li>Operations, updates, monitoring and incident response</li>
+    <li>Identity-provider licensing, if your chosen provider charges for SAML or OIDC</li>
+    <li>Remote model API usage or local inference hardware</li>
+  </ul>
+
+  <h2>No hosted plan today</h2>
+  <p>WrenLore does not currently sell a managed hosted edition or a commercial support plan. Teams that require a vendor-operated service, contractual SLA or procurement package should treat that as a real gap when evaluating the project.</p>
+
+  <p><a class="button button-primary" href="https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md">Read the deployment runbook</a></p>
+</InfoPage>

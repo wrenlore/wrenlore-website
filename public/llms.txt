@@ -1,0 +1,28 @@
+# WrenLore
+
+WrenLore is an AGPL-3.0, self-hosted knowledge base for teams and AI agents.
+
+## Primary pages
+- https://wrenlore.com/ — product overview
+- https://wrenlore.com/about/ — project purpose, provenance and governance
+- https://wrenlore.com/pricing/ — licence and operator cost model
+- https://wrenlore.com/security/ — security and deployment controls
+- https://wrenlore.com/confluence-alternative/ — Confluence migration and comparison
+- https://wrenlore.com/notion-alternative/ — Notion alternative for governed team knowledge
+- https://wrenlore.com/self-hosted-ai-knowledge-base/ — AI architecture and limitations
+- https://wrenlore.com/mcp-knowledge-base/ — MCP agent access model
+- https://wrenlore.com/on-premise-knowledge-base/ — deployment overview
+- https://wrenlore.com/agent-wiki-access/ — technical design of scoped agent access and revision-safe writes
+
+## Authoritative source
+- https://github.com/wrenlore/wrenlore — application source
+- https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md — deployment runbook
+- https://github.com/wrenlore/wrenlore/blob/master/docs/MCP.md — MCP V1 documentation
+- https://github.com/wrenlore/wrenlore/releases — releases
+
+## Facts
+- Licence: AGPL-3.0 for the application; MIT for the marketing website
+- Deployment: Docker Compose with WrenLore, PostgreSQL/pgvector and Redis
+- MCP transport: remote Streamable HTTP with bearer-token authentication
+- MCP access: user-owned, scoped, expiring and revocable tokens
+- Project provenance: derived from Docmost Community; not affiliated with or endorsed by Docmost, Inc.
