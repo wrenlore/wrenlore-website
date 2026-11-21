@@ -1,16 +1,48 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProductWindow from '../components/ProductWindow.astro';
+const title = 'WrenLore | Self-Hosted Knowledge for Humans and AI Agents';
+const description = 'An open-source, self-hosted knowledge base with collaborative editing, grounded AI, SSO, audit trails and governed MCP access.';
+const schema = [
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: 'WrenLore', url: Astro.site, description },
+  { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'WrenLore', applicationCategory: 'BusinessApplication', operatingSystem: 'Linux, Docker', url: Astro.site, codeRepository: 'https://github.com/wrenlore/wrenlore', license: 'https://www.gnu.org/licenses/agpl-3.0.html', description, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
+];
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title={title} description={description} canonical="/" schema={schema}>
+  <Header />
+  <main>
+    <section class="hero shell">
+      <div class="hero-copy">
+        <a class="release-link" href="https://github.com/wrenlore/wrenlore/releases/tag/v0.1.11">WrenLore v0.1.11 is available <span>Read the release →</span></a>
+        <h1>Your team’s knowledge.<br />Ready for people and agents.</h1>
+        <p>WrenLore is an open-source, self-hosted knowledge base with collaborative editing, grounded AI and governed access for MCP clients.</p>
+        <div class="hero-actions"><a class="button button-primary button-large" href="https://github.com/wrenlore/wrenlore">View on GitHub</a><a class="button button-secondary button-large" href="https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md">Deployment guide</a></div>
+        <div class="hero-proof"><span>AGPL-3.0</span><span>Docker deployment</span><span>No mandatory cloud</span></div>
+      </div>
+      <ProductWindow />
+    </section>
+    <section class="trust-strip"><div class="shell"><span>Built for knowledge that cannot live in a random SaaS account</span><b>SAML SSO</b><b>Page permissions</b><b>Audit history</b><b>MCP tokens</b><b>PostgreSQL</b></div></section>
+    <section class="section shell">
+      <div class="section-heading"><h2>A wiki people will use. Controls operators can explain.</h2><p>Write and organise knowledge in a familiar workspace. Keep identity, storage, AI providers and agent access under the same operational model.</p></div>
+      <div class="feature-grid">
+        <article class="feature-large"><div class="feature-number">01</div><h3>Collaborative knowledge</h3><p>Real-time editing, team spaces, diagrams, comments and page history for runbooks, decisions, policies and project context.</p><div class="mini-doc"><b>Architecture decision 014</b><span>Move event delivery to an outbox pattern</span><div><i>LS</i><i>MK</i><small>Edited 12 minutes ago</small></div></div></article>
+        <article><div class="feature-number">02</div><h3>Grounded answers</h3><p>Ask questions across the pages you can access. Answers stay linked to the source instead of becoming detached chatbot folklore.</p><a href="/self-hosted-ai-knowledge-base/">How AI works in WrenLore →</a></article>
+        <article><div class="feature-number">03</div><h3>Governed MCP access</h3><p>Give approved agents scoped credentials and readable user-via-agent attribution. Revoke access without untangling a shared API key.</p><a href="/mcp-knowledge-base/">Read about MCP access →</a></article>
+        <article><div class="feature-number">04</div><h3>Private deployment</h3><p>Run the application, PostgreSQL and storage on your infrastructure. Connect the identity and AI services that fit your environment.</p><a href="/on-premise-knowledge-base/">Deployment options →</a></article>
+      </div>
+    </section>
+    <section class="section section-ink"><div class="shell split-section">
+      <div><h2>One permission model.<br />Human or machine.</h2><p>Agents do not need a hidden back door into company knowledge. WrenLore uses scoped credentials, existing page access and an audit trail people can read.</p><a class="text-link" href="https://github.com/wrenlore/wrenlore/blob/master/docs/MCP.md">Read the MCP documentation →</a></div>
+      <div class="permission-stack"><div><b>Leo Stehlik</b><span>Engineering space · editor</span></div><div class="connector"><span></span><small>scoped MCP token</small></div><div><b>Claude Code</b><span>Acting as Leo · 3 actions logged</span></div><div class="audit-line"><time>14:32</time><span>Updated “Database failover”</span><em>User, via agent</em></div></div>
+    </div></section>
+    <section class="section shell"><div class="section-heading compact"><h2>Leave the SaaS wiki behind.</h2><p>Start with the route that matches the system your team is replacing.</p></div><div class="migration-grid">
+      <a href="/confluence-alternative/"><strong>From Confluence</strong><span>Importer, migration considerations and feature comparison</span><b>Open guide →</b></a>
+      <a href="/notion-alternative/"><strong>From Notion</strong><span>Move operational knowledge into a governed, self-hosted workspace</span><b>Open guide →</b></a>
+      <a href="/on-premise-knowledge-base/"><strong>From another wiki</strong><span>Plan a controlled deployment around PostgreSQL and Docker</span><b>View deployment →</b></a>
+    </div></section>
+    <section class="closing-cta shell"><div><h2>Knowledge infrastructure you can inspect.</h2><p>Source, releases, deployment notes and security work are public.</p></div><div class="hero-actions"><a class="button button-primary button-large" href="https://github.com/wrenlore/wrenlore">Explore the repository</a><a class="button button-secondary button-large" href="https://github.com/wrenlore/wrenlore/releases">Browse releases</a></div></section>
+  </main>
+  <Footer />
+</BaseLayout>

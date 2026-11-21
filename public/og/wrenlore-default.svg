@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#161826"/>
+  <rect x="70" y="70" width="1060" height="490" rx="14" fill="#202230" stroke="#353849"/>
+  <path d="M130 145h76c31 0 56 25 56 56v106h-76c-31 0-56-25-56-56V145Z" fill="none" stroke="#a79be8" stroke-width="14"/>
+  <path d="M316 145h-51c-25 0-46 20-46 46v116" fill="none" stroke="#a79be8" stroke-width="14"/>
+  <text x="130" y="392" fill="#f2f1f6" font-family="Inter,Arial,sans-serif" font-size="76" font-weight="650">WrenLore</text>
+  <text x="130" y="464" fill="#aaa9b7" font-family="Inter,Arial,sans-serif" font-size="31">Self-hosted knowledge for humans and AI agents.</text>
+  <text x="912" y="500" fill="#a79be8" font-family="ui-monospace,monospace" font-size="24">AGPL-3.0</text>
+</svg>

@@ -1,0 +1,8 @@
+---
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+---
+<a class="brand" href="/" aria-label="WrenLore home">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 7.5h8.2c3.2 0 5.8 2.6 5.8 5.8V25H11.8A5.8 5.8 0 0 1 6 19.2V7.5Z" /><path d="M26 7.5h-5.5c-2.6 0-4.8 2.1-4.8 4.8V25" /></svg>
+  {!compact && <span>WrenLore</span>}
+</a>

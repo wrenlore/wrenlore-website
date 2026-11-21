@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+const title = 'Security and Trust | WrenLore';
+const description = 'How WrenLore approaches private deployment, identity, permissions, auditability, dependency maintenance and responsible vulnerability reporting.';
+---
+<BaseLayout title={title} description={description} canonical="/security/">
+  <Header />
+  <main class="shell narrow legal-page"><p class="breadcrumb"><a href="/">WrenLore</a><span>/</span>Security</p><h1>Security and trust</h1><p class="lead">WrenLore is built for operational knowledge. Security work is part of the product, not a badge added to the marketing page.</p>
+    <section><h2>Deployment boundary</h2><p>WrenLore runs on infrastructure controlled by the operator. It does not require a mandatory WrenLore cloud control plane. Operators remain responsible for TLS, host security, backups, network policy and production monitoring.</p></section>
+    <section><h2>Identity and access</h2><p>WrenLore supports local authentication and enterprise SAML flows, with role and page-level access controls. MCP access uses scoped credentials tied to a user identity rather than an anonymous shared agent account.</p></section>
+    <section><h2>Maintenance</h2><p>The project tracks vulnerabilities in its dependency stack and inherited community code. Public releases and security maintenance are recorded in the GitHub repository.</p></section>
+    <section><h2>Report a vulnerability</h2><p>Do not open a public issue for an undisclosed vulnerability. Use the private security reporting channel in the GitHub repository.</p><a class="button button-secondary" href="https://github.com/wrenlore/wrenlore/security">Open GitHub Security</a></section>
+  </main>
+  <Footer />
+</BaseLayout>
