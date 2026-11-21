@@ -3,21 +3,20 @@ import InfoPage from '../components/InfoPage.astro';
 ---
 <InfoPage title="Pricing" description="WrenLore’s public software has no per-user licence fee. You run it, and you pay the infrastructure and model costs you choose." eyebrow="AGPL-3.0">
   <div class="price-card"><p class="eyebrow">Public software</p><strong>€0</strong><span>per user / month in WrenLore licence fees</span></div>
-
-  <h2>What is included</h2>
-  <p>The public WrenLore repository contains the collaborative wiki, Docker deployment files, SSO and audit capabilities, AI features and the MCP agent interface. It is licensed under AGPL-3.0. There is no mandatory WrenLore cloud account and no feature-unlock key.</p>
-
-  <h2>What still costs money</h2>
-  <p>Self-hosted does not mean cost-free. The operator provides the Linux host or private cloud, PostgreSQL storage, backups, TLS, monitoring and staff time. AI features can also create model or GPU costs depending on whether the deployment uses a remote API or local inference.</p>
-  <ul>
-    <li>Compute, storage, backups and network traffic</li>
-    <li>Operations, updates, monitoring and incident response</li>
-    <li>Identity-provider licensing, if your chosen provider charges for SAML or OIDC</li>
-    <li>Remote model API usage or local inference hardware</li>
-  </ul>
-
-  <h2>No hosted plan today</h2>
-  <p>WrenLore does not currently sell a managed hosted edition or a commercial support plan. Teams that require a vendor-operated service, contractual SLA or procurement package should treat that as a real gap when evaluating the project.</p>
-
-  <p><a class="button button-primary" href="https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md">Read the deployment runbook</a></p>
+  <h2>What the public licence includes</h2>
+  <p>The WrenLore repository contains the collaborative wiki, Docker deployment files, local accounts, SAML configuration, audit capabilities, AI features and the MCP agent interface. The software is licensed under AGPL-3.0. There is no mandatory WrenLore cloud account, per-seat key or feature-unlock subscription.</p>
+  <p>That figure describes the software licence. It is not a promise that operating a production knowledge base costs nothing. A useful budget separates the licence from the infrastructure and people needed to keep the service reliable.</p>
+  <h2>Costs the operator still owns</h2>
+  <p>The documented deployment runs the application with PostgreSQL and Redis. The operator provides the Linux host or private cloud, durable storage, backups, TLS, monitoring and staff time. The actual bill depends on data volume, traffic, retention, availability requirements and how much operational work already exists in the organisation.</p>
+  <ul><li>Compute, database storage, attachments, backups and network traffic</li><li>Reverse proxy, certificates, monitoring, log retention and alerting</li><li>Updates, vulnerability response, restore tests and incident handling</li><li>Identity-provider licensing, if the chosen SAML provider charges for the required plan</li><li>Remote model API usage or local inference hardware for optional AI features</li></ul>
+  <h2>AI cost is a deployment choice</h2>
+  <p>Core wiki functions do not require a language-model provider. If AI features are enabled, the operator chooses the provider and model configuration. A remote API can create usage charges and sends selected content to that provider. A local model keeps inference under the operator’s control but requires suitable hardware, capacity planning and maintenance.</p>
+  <p>There is no single honest monthly estimate that fits both a small internal wiki and a larger installation with local inference, long backup retention and high availability. Start with the documented stack, measure it with representative content, and price the infrastructure against your own recovery and security requirements.</p>
+  <h2>What WrenLore does not sell today</h2>
+  <p>WrenLore does not currently sell a managed hosted edition, paid support plan, contractual SLA, migration service or procurement package. The public GitHub project is the product distribution channel. Teams that require a vendor-operated service, guaranteed response times or contractual assurances should treat those as current gaps.</p>
+  <h2>Questions to put in the budget</h2>
+  <ul><li>Who owns the host, database, backups and restore tests?</li><li>What uptime and recovery targets does the team actually need?</li><li>Will AI use an approved remote endpoint, local inference, or remain disabled?</li><li>How will releases and security updates be tested before production?</li><li>Does the organisation need commercial support that WrenLore does not currently provide?</li></ul>
+  <h2>Licence obligations still matter</h2>
+  <p>WrenLore is distributed under AGPL-3.0. Review the repository licence and your intended deployment or modification model with the people responsible for open-source compliance. This page explains the current product and cost shape; it is not legal advice or a replacement for the licence text.</p>
+  <p><a class="button button-primary" href="https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md">Read the deployment runbook</a> <a class="button button-secondary" href="https://github.com/wrenlore/wrenlore/blob/master/LICENSE">Read the licence</a></p>
 </InfoPage>

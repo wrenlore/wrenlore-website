@@ -50,10 +50,42 @@ export const seoPages = [
       { title: 'Real-time editing', body: 'Write together with a block editor, comments, diagrams and page history in shared team spaces.' }, { title: 'Private by deployment', body: 'Run the application, PostgreSQL and object storage under your own operational controls.' },
       { title: 'Identity and permissions', body: 'Connect enterprise identity and apply access rules at the space and page level.' }, { title: 'Grounded AI', body: 'Ask questions across content you can access and keep answers tied to source pages instead of detached chatbot memory.' },
     ],
+    deepDive: [
+      {
+        eyebrow: 'A different centre of gravity', title: 'Built for shared operational knowledge, not an all-purpose workspace',
+        body: [
+          'WrenLore covers the part of Notion many teams use as an internal wiki: nested pages, collaborative editing, comments, diagrams, attachments, page history and search. Spaces give departments or projects a clear home, while page-level restrictions deal with material that should not be visible to everyone in a space.',
+          'It does not try to reproduce every Notion surface. Teams using databases as lightweight CRMs, project trackers, forms or automation hubs should inventory those workflows before moving. A WrenLore page can hold a table, but that is different from a relational Notion database with filtered views and formulas.'
+        ],
+        bullets: ['Collaborative pages, comments and revision history', 'Spaces and page restrictions for team knowledge', 'Diagrams, tables, attachments and public sharing', 'No claim of feature parity with Notion databases or automations']
+      },
+      {
+        eyebrow: 'Control and AI', title: 'Keep the source pages and agent access under the same permissions',
+        body: [
+          'The application, PostgreSQL database and file storage run in infrastructure chosen by the operator. SAML SSO can tie access to an existing identity provider. Backups, TLS, monitoring and upgrades remain operational responsibilities rather than being hidden inside a SaaS subscription.',
+          'AI Answers works from WrenLore pages the requester can access. MCP connections use named, user-owned tokens with read-only or read/write mode, optional space scope, expiry and revocation. Agent edits retain user-via-agent attribution. That makes WrenLore useful when the wiki is also becoming a working knowledge source for automation.'
+        ],
+        bullets: ['Operator-controlled application, database and storage', 'SAML SSO plus workspace, space and page access rules', 'Grounded answers linked back to maintained pages', 'Scoped MCP connections rather than one shared administrator key'],
+        link: { label: 'Read the MCP access model', href: 'https://github.com/wrenlore/wrenlore/blob/master/docs/MCP.md' }
+      }
+    ],
+    comparisonTitle: 'WrenLore and Notion: choose the trade-off you actually need',
+    comparisonLabel: 'Notion',
+    comparison: [
+      { label: 'Hosting', wrenlore: 'Your servers or private cloud', conventional: 'Notion-hosted SaaS' },
+      { label: 'Primary shape', wrenlore: 'Governed team wiki and operational knowledge', conventional: 'Documents, databases and broad workspace tooling' },
+      { label: 'Agent access', wrenlore: 'Scoped MCP tokens with user-via-agent attribution', conventional: 'Notion API and integrations' },
+      { label: 'Identity', wrenlore: 'Local accounts and SAML configuration', conventional: 'Notion account and plan capabilities' },
+      { label: 'Operations', wrenlore: 'Your team patches, monitors and backs up', conventional: 'Notion operates the service' },
+      { label: 'Licence', wrenlore: 'AGPL-3.0 public source', conventional: 'Proprietary service' },
+    ],
+    limitations: ['WrenLore is not a drop-in replacement for Notion databases, formulas, forms, calendar views or automation workflows.', 'There is no managed WrenLore cloud service or commercial support plan today.', 'The operator owns upgrades, backups, TLS, monitoring and disaster recovery.', 'Test export and migration behaviour with representative Notion content before planning a cutover.'],
     questions: [
       { question: 'Is WrenLore designed as a personal notes app?', answer: 'Its main focus is shared operational knowledge for teams. Personal notes can live in a private space, but the product is strongest when knowledge needs collaboration and governance.' },
       { question: 'Can WrenLore run without external AI providers?', answer: 'Yes. Core wiki functions do not require an AI provider. AI features depend on the provider and model configuration chosen by the operator.' },
       { question: 'Who owns the stored content?', answer: 'The deployment operator controls the database and storage. WrenLore does not require content to be stored in a WrenLore-hosted cloud service.' },
+      { question: 'Can WrenLore replace Notion databases?', answer: 'No. WrenLore is strongest as a collaborative knowledge base. Teams relying on relational databases, formulas, filtered views or Notion automations should keep those workflows elsewhere or evaluate a separate replacement.' },
+      { question: 'Does WrenLore provide a hosted migration service?', answer: 'No. The public project provides self-hosted software and documentation. Operators should test their own export and import process with representative content.' },
     ],
   },
   {
@@ -149,9 +181,41 @@ export const seoPages = [
       { title: 'Docker deployment', body: 'Build and run the application with documented containers, PostgreSQL and operator-controlled configuration.' }, { title: 'Enterprise identity', body: 'Connect SAML-based identity providers and keep access lifecycle tied to organisational accounts.' },
       { title: 'Your observability', body: 'Operate logging, backups, TLS and monitoring with the tools already used in your environment.' }, { title: 'No mandatory cloud control plane', body: 'The public application does not require a WrenLore SaaS account to run.' },
     ],
+    deepDive: [
+      {
+        eyebrow: 'Deployment shape', title: 'An ordinary stack your operations team can inspect',
+        body: [
+          'The documented starting point uses Docker Compose to run the WrenLore application, PostgreSQL with pgvector, and Redis. The operator supplies environment configuration, durable volumes, a reverse proxy and TLS. There is no mandatory WrenLore-hosted account or control plane in the request path.',
+          'That keeps the boundary understandable, but it does not remove operational work. Production teams still need image pinning, secret handling, database backups, restore tests, monitoring, log retention, update windows and capacity planning. WrenLore publishes software; it does not operate the host for you.'
+        ],
+        bullets: ['Docker Compose is the documented baseline', 'PostgreSQL stores application data and pgvector-backed AI retrieval', 'Redis supports application and collaborative runtime work', 'Reverse proxy, TLS, backups and monitoring stay under operator control'],
+        link: { label: 'Inspect the deployment runbook', href: 'https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md' }
+      },
+      {
+        eyebrow: 'Isolation and integrations', title: 'Decide which services may cross the network boundary',
+        body: [
+          'Core wiki functions do not require an external model provider. AI features depend on the model and provider configuration chosen by the operator. A remote provider receives the content sent to it, so teams with strict boundaries should use an approved endpoint, a local model path, or leave AI features disabled.',
+          'SAML identity also depends on the chosen identity provider, and outbound email depends on the configured mail service. A disconnected deployment therefore needs more than a firewall rule: images, updates, identity, mail, model access and vulnerability information all need an operator-defined transfer and maintenance process.'
+        ],
+        bullets: ['Core authoring and search can run without an AI provider', 'Remote model use can move selected content outside the deployment', 'Identity and mail integrations need deliberate network policy', 'Disconnected environments need a tested update and artifact-transfer procedure']
+      }
+    ],
+    comparisonTitle: 'On-premise WrenLore versus a managed knowledge SaaS',
+    comparisonLabel: 'Managed SaaS wiki',
+    comparison: [
+      { label: 'Data location', wrenlore: 'Operator-selected host, database and storage', conventional: 'Vendor-selected service boundary and regions' },
+      { label: 'Network policy', wrenlore: 'Your ingress, egress and private routing', conventional: 'Vendor service plus available controls' },
+      { label: 'Upgrades', wrenlore: 'Scheduled and tested by your team', conventional: 'Rolled out by the vendor' },
+      { label: 'Backups', wrenlore: 'Your retention and restore process', conventional: 'Vendor platform policy and export options' },
+      { label: 'AI providers', wrenlore: 'Configured by the operator', conventional: 'Defined by the service and plan' },
+      { label: 'Support', wrenlore: 'Public project; no commercial SLA today', conventional: 'Depends on vendor contract' },
+    ],
+    limitations: ['WrenLore does not provide a managed control plane, hosted backups or a commercial SLA.', 'The operator is responsible for host hardening, TLS, secrets, monitoring, patching and recovery tests.', 'A fully disconnected deployment needs an explicit process for images, releases and security updates.', 'Using remote AI, identity or mail providers can still send data or metadata outside the local network.'],
     questions: [
-      { question: 'Can WrenLore run in an air-gapped network?', answer: 'The application can be deployed in isolated environments, but installation images, model access and updates need an operator-defined transfer process.' },
+      { question: 'Can WrenLore run in an isolated network?', answer: 'The application can be deployed without a mandatory WrenLore cloud service. Images, releases, identity, email, model access and security updates still need an operator-defined process. Treat a true air-gap as an architecture and operations exercise, not a product checkbox.' },
       { question: 'What database does WrenLore use?', answer: 'WrenLore uses PostgreSQL. Deployment documentation covers the expected application and database configuration.' }, { question: 'Is Kubernetes required?', answer: 'No. Docker Compose is the documented starting point.' },
+      { question: 'Can AI stay inside our network?', answer: 'That depends on the provider configuration. Operators can choose an approved local or remote provider, and core wiki functions do not require AI. Any remote provider receives the content sent to it.' },
+      { question: 'Who performs backups and upgrades?', answer: 'The deployment operator does. WrenLore provides public source, releases and deployment documentation, but it does not currently provide a managed operations service.' },
     ],
   },
 ] as const;
