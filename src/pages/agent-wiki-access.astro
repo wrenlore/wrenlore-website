@@ -1,7 +1,7 @@
 ---
 import InfoPage from '../components/InfoPage.astro';
 ---
-<InfoPage title="Giving AI agents wiki access without a shared admin token" description="The concrete permission, attribution and retry model behind WrenLore’s MCP server." eyebrow="MCP design notes" updated="21 November 2026" schemaType="Article">
+<InfoPage title="Giving AI agents wiki access without a shared admin token" description="How WrenLore gives AI agents scoped wiki access with user-owned tokens, live permission checks, revision safety and readable attribution." eyebrow="MCP design notes" updated="22 November 2026" schemaType="Article">
   <p class="article-deck">A wiki integration gets dangerous quickly when every agent uses the same administrator credential. You lose the person behind an action, revocation becomes all-or-nothing, and a retry after a timeout can apply the same edit twice. WrenLore’s MCP V1 was built around those failure modes.</p>
 
   <h2>The connection belongs to a user</h2>
