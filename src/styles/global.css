@@ -299,6 +299,11 @@
 .hero-proof span { display: flex; align-items: center; gap: 8px; }
 .hero-proof span::before { content: '✓'; color: var(--wl-accent); }
 main > .hero { background: var(--wl-bg); box-shadow: 0 0 0 100vmax var(--wl-bg); clip-path: inset(0 -100vmax); }
+.product-screenshot { margin: 0; }
+.product-screenshot img { display: block; width: 100%; height: auto; border: 1px solid #d8d6df; border-radius: 8px; background: #fff; box-shadow: 0 2px 8px rgba(12, 13, 18, 0.08); }
+.product-screenshot figcaption { margin-top: 12px; color: #666570; font-size: 0.86rem; line-height: 1.5; }
+.hero-screenshot img { border-color: #3a3c49; }
+.hero-screenshot figcaption { color: #aaa8b5; }
 
 .product-window { border: 1px solid rgba(255,255,255,0.13); background: #1d1f2c; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.18); font-size: 12px; }
 .window-bar { height: 42px; display: flex; align-items: center; gap: 6px; padding: 0 14px; border-bottom: 1px solid var(--wl-line); color: #8f8e9c; }
@@ -338,6 +343,10 @@ main > .hero { background: var(--wl-bg); box-shadow: 0 0 0 100vmax var(--wl-bg);
 .feature-grid .feature-large { grid-column: span 2; }
 .feature-grid article > p { color: #686772; max-width: 520px; }
 .feature-grid article > a { margin-top: auto; font-size: 0.86rem; font-weight: 620; text-decoration: none; }
+.product-gallery-section { padding-top: 20px; }
+.product-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 36px 28px; }
+.product-gallery .product-screenshot:first-child { grid-column: 1 / -1; }
+.product-proof { padding-bottom: 110px; }
 .feature-number { margin-bottom: 64px; color: #67646f; font-family: var(--font-mono); font-size: 0.75rem; }
 .mini-doc { margin-top: 28px; background: white; border: 1px solid #dedce4; border-radius: 8px; padding: 18px; display: flex; flex-direction: column; gap: 4px; max-width: 520px; }
 .mini-doc > span { color: #777580; font-size: .84rem; }
@@ -464,6 +473,9 @@ main > .hero { background: var(--wl-bg); box-shadow: 0 0 0 100vmax var(--wl-bg);
   .feature-grid { grid-template-columns: 1fr; }
   .feature-grid .feature-large { grid-column: span 1; }
   .feature-grid article { min-height: 300px; }
+  .product-gallery { grid-template-columns: 1fr; }
+  .product-gallery .product-screenshot:first-child { grid-column: auto; }
+  .product-proof { padding-bottom: 76px; }
   .migration-grid, .detail-grid { grid-template-columns: 1fr; }
   .closing-cta { padding: 28px; margin-bottom: 76px; align-items: flex-start; flex-direction: column; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 38px 24px; }
