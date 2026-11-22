@@ -321,7 +321,7 @@ main > .hero { background: var(--wl-bg); box-shadow: 0 0 0 100vmax var(--wl-bg);
 .window-body section > p { margin-top: 20px; padding: 10px; border: 1px solid var(--wl-line); border-radius: 6px; color: #d0cfda; line-height: 1.45; }
 .window-body .answer { color: #d9d7e1; line-height: 1.55; padding: 10px 2px 20px; }
 .window-body .answer u { display: block; color: var(--wl-accent-strong); margin-top: 8px; text-decoration: none; }
-.window-body section small { color: #777786; }
+.window-body section small { color: #aaa8b5; }
 
 .trust-strip { background: #202230; color: var(--wl-text); border-top: 1px solid var(--wl-line); border-bottom: 1px solid var(--wl-line); }
 .trust-strip .shell { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
@@ -351,6 +351,7 @@ main > .hero { background: var(--wl-bg); box-shadow: 0 0 0 100vmax var(--wl-bg);
 .split-section { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 110px; align-items: center; }
 .split-section > div:first-child p { max-width: 520px; font-size: 1.03rem; }
 .text-link { display: inline-block; margin-top: 20px; color: var(--wl-accent-strong); text-decoration: none; }
+.text-link-secondary { margin-top: 10px; }
 .permission-stack > div:not(.connector) { padding: 18px 20px; border: 1px solid var(--wl-line); background: var(--wl-surface); border-radius: 8px; display: flex; justify-content: space-between; gap: 14px; }
 .permission-stack span { color: var(--wl-muted); }
 .connector { height: 52px; position: relative; display: grid; place-items: center; }
