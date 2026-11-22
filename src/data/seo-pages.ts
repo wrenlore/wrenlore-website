@@ -92,6 +92,11 @@ export const seoPages = [
     slug: 'self-hosted-ai-knowledge-base', title: 'A self-hosted AI knowledge base with source control', metaTitle: 'Self-Hosted AI Knowledge Base | WrenLore',
     description: 'WrenLore combines a collaborative wiki with grounded AI search, citations, private deployment and permission-aware access for people and agents.',
     intro: 'Give people and AI tools one governed source of operational knowledge, hosted inside the environment your team already controls.', problem: 'AI answers are only useful when the source is trustworthy',
+    screenshot: {
+      src: '/screenshots/trusted-answer-flow.jpg',
+      alt: 'A WrenLore page diagramming the flow from a user question through permission-aware search to a cited answer',
+      caption: 'A useful answer stays inside the user’s permissions and points back to maintained WrenLore pages.',
+    },
     points: [
       { title: 'Answers with citations', body: 'Ground responses in the pages a user can access and point back to the source material used.' }, { title: 'Provider choice', body: 'Route AI work through configured providers and models rather than locking the knowledge base to a single vendor.' },
       { title: 'Human-owned knowledge', body: 'People write, review and maintain the source pages. AI helps retrieve and work with that material.' }, { title: 'Auditable agent work', body: 'Agent edits carry user-via-agent attribution so machine activity does not disappear into a shared service account.' },
@@ -135,6 +140,11 @@ export const seoPages = [
     slug: 'mcp-knowledge-base', title: 'A knowledge base your MCP clients can work with', metaTitle: 'MCP Knowledge Base for AI Agents | WrenLore',
     description: 'Connect MCP-compatible agents to a self-hosted knowledge base using scoped tokens, existing permissions and user-via-agent attribution.',
     intro: 'WrenLore exposes governed knowledge workflows through the Model Context Protocol, so approved agents can retrieve and maintain the same pages people use.', problem: 'Agent access needs a boundary, not a shared admin token',
+    screenshot: {
+      src: '/screenshots/agents-at-the-gate.jpg',
+      alt: 'A WrenLore sequence diagram showing user-owned MCP tokens, permission checks and revision-safe agent edits',
+      caption: 'The full MCP path is visible: named user, scoped token, live permission checks and a revision-safe write.',
+    },
     points: [
       { title: 'Scoped credentials', body: 'Issue user-owned MCP tokens with an explicit relationship to the person authorising the agent.' }, { title: 'Permission-aware retrieval', body: 'Agents work inside the spaces and pages their credentials can access.' },
       { title: 'Readable attribution', body: 'Record edits as user, via agent, so reviewers can see who authorised an automated change.' }, { title: 'Standard client connection', body: 'Use MCP-compatible clients without writing a one-off integration for every AI tool.' },
@@ -177,6 +187,11 @@ export const seoPages = [
     slug: 'on-premise-knowledge-base', title: 'On-premise knowledge base software for controlled environments', metaTitle: 'On-Premise Knowledge Base Software | WrenLore',
     description: 'Deploy an open-source knowledge base on-premise with Docker, PostgreSQL, SSO, permissions, audit history and controlled AI integrations.',
     intro: 'Run WrenLore in your data centre, private cloud or isolated environment and keep operational knowledge under your own network and storage policy.', problem: 'Private knowledge should have an understandable deployment',
+    screenshot: {
+      src: '/screenshots/open-source-by-design.jpg',
+      alt: 'A WrenLore page showing open-source code, operator-controlled data, chosen infrastructure and scoped agent APIs',
+      caption: 'Open source is operational: inspect the code, control the data, choose the host and keep the exit path.',
+    },
     points: [
       { title: 'Docker deployment', body: 'Build and run the application with documented containers, PostgreSQL and operator-controlled configuration.' }, { title: 'Enterprise identity', body: 'Connect SAML-based identity providers and keep access lifecycle tied to organisational accounts.' },
       { title: 'Your observability', body: 'Operate logging, backups, TLS and monitoring with the tools already used in your environment.' }, { title: 'No mandatory cloud control plane', body: 'The public application does not require a WrenLore SaaS account to run.' },

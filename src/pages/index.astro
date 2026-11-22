@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import ProductWindow from '../components/ProductWindow.astro';
+import ProductScreenshot from '../components/ProductScreenshot.astro';
 const title = 'WrenLore | Self-Hosted Knowledge for Humans and AI Agents';
 const description = 'An open-source, self-hosted knowledge base with collaborative editing, grounded AI, SSO, audit trails and governed MCP access.';
 const schema = [
@@ -21,7 +21,13 @@ const schema = [
         <div class="hero-actions"><a class="button button-primary button-large" href="https://github.com/wrenlore/wrenlore">View on GitHub</a><a class="button button-secondary button-large" href="https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md">Deployment guide</a></div>
         <div class="hero-proof"><span>AGPL-3.0</span><span>Docker deployment</span><span>No mandatory cloud</span></div>
       </div>
-      <ProductWindow />
+      <ProductScreenshot
+        class="hero-screenshot"
+        src="/screenshots/wrenlore-showcase-overview.jpg"
+        alt="WrenLore workspace showing a knowledge page with a Mermaid diagram, audit table and page tree"
+        caption="A real WrenLore workspace: pages, diagrams, permissions and revision history in one place."
+        eager
+      />
     </section>
     <section class="trust-strip"><div class="shell"><span>Built for knowledge that cannot live in a random SaaS account</span><b>SAML SSO</b><b>Page permissions</b><b>Audit history</b><b>MCP tokens</b><b>PostgreSQL</b></div></section>
     <section class="section shell">
@@ -31,6 +37,14 @@ const schema = [
         <article><div class="feature-number">02</div><h3>Grounded answers</h3><p>Ask questions across the pages you can access. Answers stay linked to the source instead of becoming detached chatbot folklore.</p><a href="/self-hosted-ai-knowledge-base/">How AI works in WrenLore →</a></article>
         <article><div class="feature-number">03</div><h3>Governed MCP access</h3><p>Give approved agents scoped credentials and readable user-via-agent attribution. Revoke access without untangling a shared API key.</p><a href="/mcp-knowledge-base/">Read about MCP access →</a></article>
         <article><div class="feature-number">04</div><h3>Private deployment</h3><p>Run the application, PostgreSQL and storage on your infrastructure. Connect the identity and AI services that fit your environment.</p><a href="/on-premise-knowledge-base/">Deployment options →</a></article>
+      </div>
+    </section>
+    <section class="section shell product-gallery-section">
+      <div class="section-heading"><h2>What the workspace actually looks like.</h2><p>These are real pages rendered in WrenLore. No product mockups, and no separate diagram tool hidden behind the screenshots.</p></div>
+      <div class="product-gallery">
+        <ProductScreenshot src="/screenshots/knowledge-constellation.jpg" alt="A WrenLore page containing a knowledge constellation diagram connected to product, engineering, research and operations" caption="Connect decisions, evidence, owners and operational context." />
+        <ProductScreenshot src="/screenshots/agents-at-the-gate.jpg" alt="A WrenLore page showing the permission checks and revision-safe workflow for an AI agent" caption="Explain exactly how an agent gets access and how each write is attributed." />
+        <ProductScreenshot src="/screenshots/incident-room.jpg" alt="A WrenLore incident page with timeline, live metrics, decisions, owners and working theory" caption="Keep an incident timeline, live picture and named decisions on one maintained page." />
       </div>
     </section>
     <section class="section section-ink"><div class="shell split-section">

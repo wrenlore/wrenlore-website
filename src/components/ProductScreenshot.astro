@@ -1,0 +1,23 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  eager?: boolean;
+  class?: string;
+}
+
+const { src, alt, caption, eager = false, class: className } = Astro.props;
+---
+<figure class:list={['product-screenshot', className]}>
+  <img
+    src={src}
+    alt={alt}
+    width="1280"
+    height="678"
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+    fetchpriority={eager ? 'high' : 'auto'}
+  />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
