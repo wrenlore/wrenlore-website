@@ -287,6 +287,8 @@
 .button-secondary { background: transparent; border-color: rgba(255,255,255,0.2); color: inherit; }
 .button-secondary:hover, .button-quiet:hover { background: rgba(255,255,255,0.06); }
 .button-quiet { color: var(--wl-muted); }
+.github-star { gap: 6px; min-width: 58px; font-variant-numeric: tabular-nums; }
+.github-star [aria-hidden="true"] { color: var(--wl-accent-strong); font-size: 0.92rem; line-height: 1; }
 .button-large { min-height: 46px; padding: 11px 18px; font-size: 0.95rem; }
 
 .hero { width: min(1380px, calc(100% - 48px)); min-height: 720px; display: grid; grid-template-columns: minmax(420px, 0.85fr) minmax(620px, 1.3fr); align-items: center; gap: 64px; padding-block: 82px; color: var(--wl-text); }
