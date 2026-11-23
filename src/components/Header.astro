@@ -4,5 +4,22 @@ import Brand from './Brand.astro';
 <header class="site-header"><div class="shell nav-shell">
   <Brand />
   <nav aria-label="Primary navigation"><a href="/self-hosted-ai-knowledge-base/">Product</a><a href="/mcp-knowledge-base/">AI &amp; MCP</a><a href="/confluence-alternative/">Migration</a><a href="/security/">Security</a></nav>
-  <div class="nav-actions"><a class="button button-quiet" href="https://github.com/wrenlore/wrenlore">GitHub</a><a class="button button-primary" href="https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md">Deploy WrenLore</a></div>
+  <div class="nav-actions"><a class="button button-quiet github-star" href="https://github.com/wrenlore/wrenlore" target="_blank" rel="noopener" aria-label="WrenLore on GitHub, 3 stars"><span aria-hidden="true">★</span><span data-github-star-count>3</span></a><a class="button button-primary" href="https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md">Deploy WrenLore</a></div>
 </div></header>
+
+<script>
+  const starCount = document.querySelector('[data-github-star-count]');
+  const starLink = starCount?.closest('a');
+
+  if (starCount && starLink) {
+    fetch('https://api.github.com/repos/wrenlore/wrenlore', { headers: { Accept: 'application/vnd.github+json' } })
+      .then((response) => response.ok ? response.json() : Promise.reject())
+      .then((repository) => {
+        if (typeof repository.stargazers_count !== 'number') return;
+        const count = repository.stargazers_count;
+        starCount.textContent = new Intl.NumberFormat('en', { notation: count >= 1000 ? 'compact' : 'standard', maximumFractionDigits: 1 }).format(count);
+        starLink.setAttribute('aria-label', `WrenLore on GitHub, ${count} ${count === 1 ? 'star' : 'stars'}`);
+      })
+      .catch(() => undefined);
+  }
+</script>
