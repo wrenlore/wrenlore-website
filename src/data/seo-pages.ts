@@ -17,7 +17,7 @@ export const seoPages = [
           'Keep the Confluence source available during validation. Page trees and ordinary content are the straightforward part. Marketplace apps and custom macros are organisation-specific, so there is no honest claim that a generic importer can reproduce all of them automatically.'
         ],
         bullets: ['Export and test one real space first', 'Check page hierarchy, attachments, internal links and permissions', 'Inventory custom macros and Marketplace apps separately', 'Plan a read-only window and final delta before cutover'],
-        link: { label: 'Review the WrenLore deployment guide', href: 'https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md' }
+        link: { label: 'Review the WrenLore deployment guide', href: '/install/' }
       },
       {
         eyebrow: 'Operations', title: 'A deployment your team can inspect',
@@ -109,7 +109,7 @@ export const seoPages = [
           'Self-hosting the application does not force one model strategy. Operators can configure local or remote providers and route models according to their own security, cost and latency requirements. The core wiki continues to work without an inference provider.'
         ],
         bullets: ['Application, database and stored knowledge run in your environment', 'AI retrieval follows the requesting user’s access', 'Answers retain links to source pages', 'Local and remote model providers are operator choices'],
-        link: { label: 'Inspect the deployment architecture', href: 'https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md' }
+        link: { label: 'Inspect the deployment architecture', href: '/install/' }
       },
       {
         eyebrow: 'A practical fit', title: 'When a wiki-backed AI system is useful',
@@ -204,7 +204,7 @@ export const seoPages = [
           'That keeps the boundary understandable, but it does not remove operational work. Production teams still need image pinning, secret handling, database backups, restore tests, monitoring, log retention, update windows and capacity planning. WrenLore publishes software; it does not operate the host for you.'
         ],
         bullets: ['Docker Compose is the documented baseline', 'PostgreSQL stores application data and pgvector-backed AI retrieval', 'Redis supports application and collaborative runtime work', 'Reverse proxy, TLS, backups and monitoring stay under operator control'],
-        link: { label: 'Inspect the deployment runbook', href: 'https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md' }
+        link: { label: 'Inspect the deployment runbook', href: '/install/' }
       },
       {
         eyebrow: 'Isolation and integrations', title: 'Decide which services may cross the network boundary',

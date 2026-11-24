@@ -13,7 +13,7 @@ const schema = { '@context': 'https://schema.org', '@type': 'WebPage', name: pag
     <section class="page-hero shell narrow">
       <p class="breadcrumb"><a href="/">WrenLore</a><span>/</span>{page.title}</p>
       <h1>{page.title}</h1><p class="lead">{page.intro}</p>
-      <div class="hero-actions"><a class="button button-primary button-large" href="https://github.com/wrenlore/wrenlore">View the source</a><a class="button button-secondary button-large" href="https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md">Deployment guide</a></div>
+      <div class="hero-actions"><a class="button button-primary button-large" href="https://github.com/wrenlore/wrenlore">View the source</a><a class="button button-secondary button-large" href="/install/">Deployment guide</a></div>
     </section>
     <section class="section shell narrow prose-intro"><h2>{page.problem}</h2><div class="detail-grid">{page.points.map((point) => <article><h3>{point.title}</h3><p>{point.body}</p></article>)}</div></section>
     {page.screenshot && <section class="product-proof shell narrow"><ProductScreenshot src={page.screenshot.src} alt={page.screenshot.alt} caption={page.screenshot.caption} /></section>}
