@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const title = 'Install WrenLore with Docker | WrenLore';
+const description = 'Install WrenLore on your machine with Docker and one command. The installer generates secrets, pulls the public containers and waits for a healthy deployment.';
+const command = 'curl -fsSL https://get.wrenlore.com/install.sh | bash';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Install WrenLore with Docker',
+  description,
+  totalTime: 'PT5M',
+  tool: [{ '@type': 'HowToTool', name: 'Docker Engine with Docker Compose' }],
+  step: [
+    { '@type': 'HowToStep', name: 'Install Docker', text: 'Install and start Docker Engine with the Docker Compose plugin.' },
+    { '@type': 'HowToStep', name: 'Run the WrenLore installer', text: command },
+    { '@type': 'HowToStep', name: 'Open WrenLore', text: 'Open http://localhost:3000 in a browser.' },
+  ],
+};
+---
+<BaseLayout title={title} description={description} canonical="/install/" schema={schema}>
+  <Header />
+  <main>
+    <section class="install-hero shell narrow">
+      <p class="eyebrow">Docker installation</p>
+      <h1>WrenLore, running locally.<br />One command.</h1>
+      <p class="install-lede">Bring a working Docker environment. WrenLore handles the deployment, credentials and health checks.</p>
+
+      <div class="install-command" data-install-command>
+        <code>{command}</code>
+        <button type="button" data-copy-command aria-label="Copy installation command">Copy</button>
+      </div>
+      <p class="command-note">No account, licence key or hand-edited <code>.env</code> file.</p>
+    </section>
+
+    <section class="install-demo shell">
+      <div class="terminal-frame">
+        <div class="terminal-bar"><span></span><span></span><span></span><b>WrenLore installation</b></div>
+        <img src="/screenshots/wrenlore-install.gif" alt="Terminal recording of the WrenLore installer pulling its Docker images and reporting a healthy installation at localhost port 3000" loading="eager" />
+      </div>
+      <p>A real clean installation recorded on Kobe. Download time depends on your connection.</p>
+    </section>
+
+    <section class="section shell narrow install-steps">
+      <div class="section-heading compact"><p class="eyebrow">Before you begin</p><h2>Docker is the only prerequisite.</h2></div>
+      <p>Install and start Docker Engine with the Docker Compose plugin. Your user must be able to run <code>docker</code> without changing privileges inside the installer.</p>
+      <div class="docker-links">
+        <a href="https://docs.docker.com/desktop/" target="_blank" rel="noopener"><strong>macOS or Windows</strong><span>Install Docker Desktop →</span></a>
+        <a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener"><strong>Linux</strong><span>Install Docker Engine →</span></a>
+        <a href="https://docs.docker.com/compose/install/" target="_blank" rel="noopener"><strong>Already use Docker?</strong><span>Check Docker Compose →</span></a>
+      </div>
+
+      <div class="numbered-step"><span>1</span><div><h2>Run the installer</h2><p>Open a terminal and paste:</p><div class="install-command install-command-small"><code>{command}</code></div></div></div>
+      <div class="numbered-step"><span>2</span><div><h2>Open WrenLore</h2><p>When the installer reports that WrenLore is ready, open <a href="http://localhost:3000"><code>http://localhost:3000</code></a>.</p></div></div>
+      <div class="numbered-step"><span>3</span><div><h2>Create the first account</h2><p>Complete the setup in your browser. The local WrenLore stack remains on your machine.</p></div></div>
+    </section>
+
+    <section class="section section-ink"><div class="shell narrow install-details">
+      <div><p class="eyebrow">What the command does</p><h2>The boring setup work, automated.</h2></div>
+      <ul>
+        <li>Checks that Docker Engine and Docker Compose are available.</li>
+        <li>Creates an isolated installation under <code>~/.wrenlore</code>.</li>
+        <li>Generates strong application and database secrets automatically.</li>
+        <li>Pulls WrenLore from public GHCR, plus PostgreSQL/pgvector and Redis.</li>
+        <li>Starts the stack and waits until the application is healthy.</li>
+        <li>Preserves secrets and persistent data when the installer is run again.</li>
+      </ul>
+    </div></section>
+
+    <section class="section shell narrow install-options">
+      <div class="section-heading compact"><p class="eyebrow">Useful options</p><h2>Defaults first. Control when you need it.</h2></div>
+      <div class="option-row"><code>--port 3001</code><span>Use another local port if 3000 is occupied.</span></div>
+      <div class="option-row"><code>--version 0.1.12</code><span>Pin a specific WrenLore image version.</span></div>
+      <div class="option-row"><code>--dir /path/to/wrenlore</code><span>Choose another installation directory.</span></div>
+      <div class="option-row"><code>--app-url https://wiki.example.com</code><span>Set the public URL when deploying behind your own proxy.</span></div>
+      <p class="runbook-note">Need TLS, backups, reverse proxy configuration or production operations? Continue to the <a href="https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md">operator runbook</a> after the basic installation.</p>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('[data-copy-command]').forEach((button) => {
+    button.addEventListener('click', async () => {
+      const command = button.closest('[data-install-command]')?.querySelector('code')?.textContent?.trim();
+      if (!command) return;
+      await navigator.clipboard.writeText(command);
+      const original = button.textContent;
+      button.textContent = 'Copied';
+      window.setTimeout(() => { button.textContent = original; }, 1600);
+    });
+  });
+</script>
