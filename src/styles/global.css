@@ -295,7 +295,7 @@
 .hero-copy > p { max-width: 610px; color: var(--wl-muted); font-size: 1.15rem; line-height: 1.65; }
 .hero-copy h1 { max-width: 720px; margin: 26px 0 28px; }
 .release-link { display: inline-flex; gap: 18px; color: var(--wl-muted); text-decoration: none; font-size: 0.83rem; border-bottom: 1px solid var(--wl-line); padding-bottom: 6px; }
-.release-link span { color: var(--wl-accent-strong); }
+.release-link .release-cta { color: var(--wl-accent-strong); }
 .hero-actions { margin-top: 30px; }
 .hero-proof { display: flex; gap: 22px; flex-wrap: wrap; margin-top: 30px; color: #8f8e9e; font-size: 0.78rem; }
 .hero-proof span { display: flex; align-items: center; gap: 8px; }
