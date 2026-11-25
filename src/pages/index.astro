@@ -15,7 +15,7 @@ const schema = [
   <main>
     <section class="hero shell">
       <div class="hero-copy">
-        <a class="release-link" href="https://github.com/wrenlore/wrenlore/releases/tag/v0.1.11">WrenLore v0.1.11 is available <span>Read the release →</span></a>
+        <a class="release-link" data-latest-release href="https://github.com/wrenlore/wrenlore/releases/latest"><span class="release-copy" data-latest-release-copy>WrenLore v0.1.12 is available</span><span class="release-cta">Read the release →</span></a>
         <h1>Your team’s knowledge.<br />Ready for people and agents.</h1>
         <p>WrenLore is an open-source, self-hosted knowledge base with collaborative editing, grounded AI and governed access for MCP clients.</p>
         <div class="hero-actions"><a class="button button-primary button-large" href="https://github.com/wrenlore/wrenlore">View on GitHub</a><a class="button button-secondary button-large" href="/install/">Deploy WrenLore</a></div>
@@ -60,3 +60,17 @@ const schema = [
   </main>
   <Footer />
 </BaseLayout>
+
+<script>
+  const releaseCopy = document.querySelector('[data-latest-release-copy]');
+
+  if (releaseCopy) {
+    fetch('https://api.github.com/repos/wrenlore/wrenlore/releases/latest', { headers: { Accept: 'application/vnd.github+json' } })
+      .then((response) => response.ok ? response.json() : Promise.reject())
+      .then((release) => {
+        if (typeof release.tag_name !== 'string' || !/^v?\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(release.tag_name)) return;
+        releaseCopy.textContent = `WrenLore ${release.tag_name} is available`;
+      })
+      .catch(() => undefined);
+  }
+</script>
