@@ -1,0 +1,19 @@
+---
+import InfoPage from '../components/InfoPage.astro';
+---
+<InfoPage title="Live WrenLore demo" description="Explore a real read-only WrenLore workspace, then deploy your own instance when you want to try editing, permissions and governed MCP access." eyebrow="Public showroom" schemaType="WebPage">
+  <h2>A real workspace, safely read-only</h2>
+  <p>The public demo is a running WrenLore deployment with an example workspace and maintained product content. It shows the page tree, rich documents and public-sharing experience without handing anonymous visitors an administrator account or a shared password.</p>
+  <p><a class="button button-primary" href="https://demo.wrenlore.com/">Open the live demo</a></p>
+
+  <h2>What the showroom demonstrates</h2>
+  <ul>
+    <li>structured pages and sub-pages for operational knowledge;</li>
+    <li>rich content that people and approved agents can work from;</li>
+    <li>a self-hosted application served from the same public release images;</li>
+    <li>public sharing with the underlying workspace kept protected.</li>
+  </ul>
+
+  <h2>What remains private</h2>
+  <p>Editing, workspace administration, audit records, member permissions and MCP tokens require an authenticated deployment. The public showroom intentionally does not provide reusable credentials. To exercise the full product, <a href="/install/">deploy WrenLore</a>; the installer generates its own secrets and keeps the application data on your Docker host.</p>
+</InfoPage>
