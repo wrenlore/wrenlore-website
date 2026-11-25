@@ -85,6 +85,17 @@ const schema = {
       <div class="option-row"><code>--app-url https://wiki.example.com</code><span>Set the public URL when deploying behind your own proxy.</span></div>
       <p class="runbook-note">Need TLS, backups, reverse proxy configuration or production operations? Continue to the <a href="https://github.com/wrenlore/wrenlore/blob/master/README-deploy.md">operator runbook</a> after the basic installation.</p>
     </section>
+
+    <section class="section shell narrow install-lifecycle">
+      <div class="section-heading compact"><p class="eyebrow">After installation</p><h2>Upgrades and recovery are documented too.</h2></div>
+      <p class="lifecycle-lede">The supported lifecycle preserves installation secrets and persistent data, captures PostgreSQL and file storage together, and refuses to overwrite another deployment during restore.</p>
+      <div class="lifecycle-grid">
+        <div><h3>Upgrade safely</h3><p>Pin a reviewed release and reconcile the existing stack without replacing its secrets or volumes.</p></div>
+        <div><h3>Back up completely</h3><p>Capture the database, file storage, deployment configuration and the credentials required to recover it.</p></div>
+        <div><h3>Restore cleanly</h3><p>Restore only into an empty directory and unused Docker project, then wait for verified application health.</p></div>
+      </div>
+      <p class="lifecycle-proof">Proved through install → upgrade → backup → full volume wipe → restore. <a href="https://github.com/wrenlore/wrenlore/blob/master/docs/OPERATIONS.md">View the operations guide →</a></p>
+    </section>
   </main>
   <Footer />
 </BaseLayout>
