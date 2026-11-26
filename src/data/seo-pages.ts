@@ -58,16 +58,23 @@ export const seoPages = [
     },
     {
       "eyebrow": "Choosing between them",
-      "title": "When Docmost is the better fit",
+      "title": "How staff join the handbook",
       "body": [
-        "Choose Docmost Community if your team already likes it and needs a straightforward shared wiki. Docmost Business includes email support, and Enterprise offers automatic staff provisioning, security-event streaming and priority support. Those can matter more than the seat cost.",
-        "Docmost supports an OAuth sign-in flow for assistants. WrenLore currently uses a named access token. Check what your assistant supports before choosing."
+        "In WrenLore, a colleague signs in with their company account and lands in the default space. An administrator can then add them to the right group, such as engineering or accounting. For a team that handles those changes itself, that is enough.",
+        "If your IT team needs its staff directory to create and deactivate wiki accounts automatically, Docmost Enterprise offers SCIM. That is a different requirement from letting people sign in with their work account."
       ],
       "bullets": [],
-      "link": {
-        "label": "Read Docmost’s assistant connection guide",
-        "href": "https://docmost.com/docs/user-guide/mcp"
-      }
+      "link": { "label": "How Docmost directory provisioning works", "href": "https://docmost.com/docs/user-guide/authentication/scim" }
+    },
+    {
+      "eyebrow": "Getting help",
+      "title": "Where to go when something goes wrong",
+      "body": [
+        "Anyone can report a WrenLore product issue on GitHub at any time. Reports are reviewed manually today; there is no guaranteed response time. WrenLore Services plans to offer email support.",
+        "Docmost Business includes email support today, and Enterprise includes priority support. If your team already uses Docmost Community and just needs a shared wiki, staying with it is also a reasonable choice."
+      ],
+      "bullets": [],
+      "link": { "label": "Report a WrenLore product issue", "href": "https://github.com/wrenlore/wrenlore/issues" }
     }
   ],
   "comparisonTitle": "What comes with each edition?",
