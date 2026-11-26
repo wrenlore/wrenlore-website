@@ -166,6 +166,12 @@ export const seoPages = [
       }
     },
     {
+      "eyebrow": "Moving your handbook",
+      "title": "Start with a free Confluence migration template",
+      "body": ["We published the importer so your team can use it, read the code and adapt it to your own Confluence version. The worked example takes a Confluence 8.5.1 XML export and turns it into pages and attachments you can review before importing. For a different version, start with an export from one space and check the result before moving the rest.", "Prefer someone to handle the move for you? WrenLore Services plans to offer paid migrations. The public template is free to use and adapt either way."],
+      "link": {"label": "Get the free migration template on GitHub", "href": "https://github.com/wrenlore/wrenlore-confluence-importer"}
+    },
+    {
       "eyebrow": "Service and support",
       "title": "Who looks after the handbook?",
       "body": [
@@ -194,7 +200,7 @@ export const seoPages = [
     }
   ],
   "limitations": [
-    "Keep Confluence if Jira links, Marketplace apps or custom macros are central to daily work. The standalone WrenLore importer targets Confluence 8.5.1 XML exports; do not assume Cloud exports or specialist macros transfer.",
+    "Keep Confluence if Jira links, Marketplace apps or custom macros are central to daily work.",
     "If nobody owns backups and updates, a hosted service may cost less overall."
   ],
   "questions": [
