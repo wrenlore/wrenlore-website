@@ -1,5 +1,228 @@
 export const seoPages = [
 {
+  "slug": "wikijs-alternative",
+  "title": "A self-hosted Wiki.js alternative for your company handbook",
+  "metaTitle": "WrenLore vs Wiki.js: which fits your team handbook?",
+  "description": "Engineering keeps the deployment guide in Markdown. Now accounting wants to correct the expense policy. Can both teams work the way they prefer?",
+  "intro": "Engineering keeps the deployment guide in Markdown. Now accounting wants to correct the expense policy. Can both teams work the way they prefer?",
+  "problem": "A handbook beyond engineering",
+  "points": [
+    {
+      "title": "Where Wiki.js fits",
+      "body": "Wiki.js offers a visual editor as well as Markdown with a side-by-side preview. Its Git sync is a good reason to stay when a repository is part of your documentation workflow."
+    },
+    {
+      "title": "Where WrenLore fits",
+      "body": "Ask a colleague to change the name of the person who approves expenses. Can they find the page, make the change and check the history without learning your repository workflow?"
+    }
+  ],
+  "deepDive": [
+    {
+      "eyebrow": "Try the editor",
+      "title": "Give the person who owns the policy the keyboard",
+      "body": [
+        "Open the WrenLore demo, sign in with the details on the login page and change a sentence in Customer onboarding. Check the page history. Do the same in your current editor with someone who updates instructions once a month. Which would they use without calling IT?"
+      ],
+      "link": {
+        "label": "Try the editable handbook",
+        "href": "https://demo.wrenlore.com/"
+      }
+    },
+    {
+      "eyebrow": "From five teams to the whole company",
+      "title": "A hundred colleagues today. Two hundred when everyone joins.",
+      "body": [
+        "Five teams of twenty start the handbook. Thirty managers join; then engineering, accounting, controlling and ESG add their procedures. Both projects offer open-source software you can self-host. A seat-price comparison alone won’t settle this decision.",
+        "In WrenLore, staff can sign in with their work account. An admin assigns groups; a connected assistant follows the owner’s page permissions. For a policy editor, allow a named assistant to update a paragraph. If another colleague edited it first, WrenLore asks the assistant to reread. The history records whose assistant made the change. The public demo’s assistant is read-only."
+      ],
+      "link": {
+        "label": "See how assistant edits work",
+        "href": "/agent-wiki-access/"
+      }
+    },
+    {
+      "eyebrow": "Before switching",
+      "title": "When to keep Wiki.js",
+      "body": [
+        "Wiki.js offers a visual editor as well as Markdown with a side-by-side preview. Its Git sync is a good reason to stay when a repository is part of your documentation workflow.",
+        "Try the same everyday task in both products before moving existing pages. In particular, check your installed version, extensions and assistant client. A product homepage alone tells you little about the editing experience."
+      ],
+      "link": {
+        "label": "Explore Wiki.js’s features",
+        "href": "https://js.wiki/"
+      }
+    }
+  ],
+  "comparisonTitle": "What should decide the pilot?",
+  "comparisonLabel": "Wiki.js",
+  "comparison": [
+    {
+      "label": "Start your evaluation with",
+      "wrenlore": "A shared page that a colleague and their assistant can maintain",
+      "conventional": "Markdown authoring and Git synchronisation"
+    }
+  ],
+  "limitations": [
+    "Plan for hosting, upgrades, backups and staff time. Open source does not mean zero operating cost.",
+    "Test a representative handbook before migrating; this comparison does not promise a one-click import."
+  ],
+  "questions": [
+    {
+      "question": "Do all 200 people need a paid WrenLore seat?",
+      "answer": "No. There is no WrenLore per-user software licence. You choose who can read and who can edit."
+    }
+  ]
+},
+{
+  "slug": "xwiki-alternative",
+  "title": "A self-hosted XWiki alternative for your company handbook",
+  "metaTitle": "WrenLore vs XWiki: which fits your team handbook?",
+  "description": "A quality manager needs a supplier register. The purchasing team just needs to know what to do when a supplier fails inspection. Those are two different jobs.",
+  "intro": "A quality manager needs a supplier register. The purchasing team just needs to know what to do when a supplier fails inspection. Those are two different jobs.",
+  "problem": "A procedure or an application?",
+  "points": [
+    {
+      "title": "Where XWiki fits",
+      "body": "XWiki’s App Within Minutes helps teams build collaborative applications around structured records. If your supplier register depends on custom fields and forms, a handbook page is no substitute."
+    },
+    {
+      "title": "Where WrenLore fits",
+      "body": "Write the inspection procedure once. Let purchasing ask its assistant for the next step, with a link back to the instructions. Keep the register in the application that owns the records."
+    }
+  ],
+  "deepDive": [
+    {
+      "eyebrow": "Try the editor",
+      "title": "Give the person who owns the policy the keyboard",
+      "body": [
+        "Open the WrenLore demo, sign in with the details on the login page and change a sentence in Customer onboarding. Check the page history. Do the same in your current editor with someone who updates instructions once a month. Which would they use without calling IT?"
+      ],
+      "link": {
+        "label": "Try the editable handbook",
+        "href": "https://demo.wrenlore.com/"
+      }
+    },
+    {
+      "eyebrow": "From five teams to the whole company",
+      "title": "A hundred colleagues today. Two hundred when everyone joins.",
+      "body": [
+        "Five teams of twenty start the handbook. Thirty managers join; then engineering, accounting, controlling and ESG add their procedures. Both projects offer open-source software you can self-host. A seat-price comparison alone won’t settle this decision.",
+        "In WrenLore, staff can sign in with their work account. An admin assigns groups; a connected assistant follows the owner’s page permissions. For a policy editor, allow a named assistant to update a paragraph. If another colleague edited it first, WrenLore asks the assistant to reread. The history records whose assistant made the change. The public demo’s assistant is read-only."
+      ],
+      "link": {
+        "label": "See how assistant edits work",
+        "href": "/agent-wiki-access/"
+      }
+    },
+    {
+      "eyebrow": "Before switching",
+      "title": "When to keep XWiki",
+      "body": [
+        "XWiki’s App Within Minutes helps teams build collaborative applications around structured records. If your supplier register depends on custom fields and forms, a handbook page is no substitute.",
+        "Try the same everyday task in both products before moving existing pages. In particular, check your installed version, extensions and assistant client. A product homepage alone tells you little about the editing experience."
+      ],
+      "link": {
+        "label": "Explore XWiki’s features",
+        "href": "https://www.xwiki.org/xwiki/bin/view/Documentation/UserGuide/Features/"
+      }
+    }
+  ],
+  "comparisonTitle": "What should decide the pilot?",
+  "comparisonLabel": "XWiki",
+  "comparison": [
+    {
+      "label": "Start your evaluation with",
+      "wrenlore": "A shared page that a colleague and their assistant can maintain",
+      "conventional": "Structured records, forms and custom wiki applications"
+    }
+  ],
+  "limitations": [
+    "Plan for hosting, upgrades, backups and staff time. Open source does not mean zero operating cost.",
+    "Test a representative handbook before migrating; this comparison does not promise a one-click import."
+  ],
+  "questions": [
+    {
+      "question": "Do all 200 people need a paid WrenLore seat?",
+      "answer": "No. There is no WrenLore per-user software licence. You choose who can read and who can edit."
+    }
+  ]
+},
+{
+  "slug": "bookstack-alternative",
+  "title": "A self-hosted BookStack alternative for your company handbook",
+  "metaTitle": "WrenLore vs BookStack: which fits your team handbook?",
+  "description": "A warehouse supervisor knows the answer is in the safety manual. A new starter only knows the question: what do I do with a damaged pallet?",
+  "intro": "A warehouse supervisor knows the answer is in the safety manual. A new starter only knows the question: what do I do with a damaged pallet?",
+  "problem": "Finding an answer without knowing the book",
+  "points": [
+    {
+      "title": "Where BookStack fits",
+      "body": "BookStack organises documentation into books, chapters and pages, with shelves to group books. For a team that thinks in manuals, that familiar structure may be exactly right."
+    },
+    {
+      "title": "Where WrenLore fits",
+      "body": "Ask the question in an assistant connected to WrenLore. Have the new starter follow the answer back to the handbook and check the instructions before acting. Give that connection read-only access."
+    }
+  ],
+  "deepDive": [
+    {
+      "eyebrow": "Try the editor",
+      "title": "Give the person who owns the policy the keyboard",
+      "body": [
+        "Open the WrenLore demo, sign in with the details on the login page and change a sentence in Customer onboarding. Check the page history. Do the same in your current editor with someone who updates instructions once a month. Which would they use without calling IT?"
+      ],
+      "link": {
+        "label": "Try the editable handbook",
+        "href": "https://demo.wrenlore.com/"
+      }
+    },
+    {
+      "eyebrow": "From five teams to the whole company",
+      "title": "A hundred colleagues today. Two hundred when everyone joins.",
+      "body": [
+        "Five teams of twenty start the handbook. Thirty managers join; then engineering, accounting, controlling and ESG add their procedures. Both projects offer open-source software you can self-host. A seat-price comparison alone won’t settle this decision.",
+        "In WrenLore, staff can sign in with their work account. An admin assigns groups; a connected assistant follows the owner’s page permissions. For a policy editor, allow a named assistant to update a paragraph. If another colleague edited it first, WrenLore asks the assistant to reread. The history records whose assistant made the change. The public demo’s assistant is read-only."
+      ],
+      "link": {
+        "label": "See how assistant edits work",
+        "href": "/agent-wiki-access/"
+      }
+    },
+    {
+      "eyebrow": "Before switching",
+      "title": "When to keep BookStack",
+      "body": [
+        "BookStack organises documentation into books, chapters and pages, with shelves to group books. For a team that thinks in manuals, that familiar structure may be exactly right.",
+        "Try the same everyday task in both products before moving existing pages. In particular, check your installed version, extensions and assistant client. A product homepage alone tells you little about the editing experience."
+      ],
+      "link": {
+        "label": "Explore BookStack’s features",
+        "href": "https://www.bookstackapp.com/"
+      }
+    }
+  ],
+  "comparisonTitle": "What should decide the pilot?",
+  "comparisonLabel": "BookStack",
+  "comparison": [
+    {
+      "label": "Start your evaluation with",
+      "wrenlore": "A shared page that a colleague and their assistant can maintain",
+      "conventional": "Browsing a handbook by shelf, book and chapter"
+    }
+  ],
+  "limitations": [
+    "Plan for hosting, upgrades, backups and staff time. Open source does not mean zero operating cost.",
+    "Test a representative handbook before migrating; this comparison does not promise a one-click import."
+  ],
+  "questions": [
+    {
+      "question": "Do all 200 people need a paid WrenLore seat?",
+      "answer": "No. There is no WrenLore per-user software licence. You choose who can read and who can edit."
+    }
+  ]
+},
+
+{
   "slug": "docmost-alternative",
   "title": "A Docmost alternative for a handbook everyone can use",
   "metaTitle": "WrenLore vs Docmost: a handbook for 100–200 people",
