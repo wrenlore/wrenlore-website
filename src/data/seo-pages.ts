@@ -325,7 +325,6 @@ export const seoPages = [
     }
   ],
   "limitations": [
-    "WrenLore derives from Docmost Community and is independent of Docmost.",
     "Self-hosting alone does not keep data in Europe if you send content to a remote AI provider."
   ],
   "questions": [
