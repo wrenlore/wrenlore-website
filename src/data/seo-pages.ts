@@ -113,95 +113,188 @@ export const seoPages = [
   ]
 }
 ,
-  {
-    slug: 'confluence-alternative', title: 'A self-hosted, open-source Confluence alternative', metaTitle: 'Open-Source Confluence Alternative | WrenLore',
-    description: 'Move team knowledge from Confluence to an open-source, self-hosted wiki with SSO, audit trails, AI search and governed agent access.',
-    intro: 'WrenLore gives teams a familiar collaborative wiki without forcing their operational knowledge into another per-seat SaaS contract.', problem: 'Keep the wiki. Change who controls it.',
-    points: [
-      { title: 'Host it yourself', body: 'Deploy with Docker on infrastructure you control. Your pages, attachments and audit data stay inside your environment.' },
-      { title: 'Bring existing content', body: 'Use the standalone Confluence importer to move spaces and page structure from supported on-premise exports.' },
-      { title: 'Keep enterprise controls', body: 'Use SAML SSO, role-based access, page-level permissions and activity history without sending knowledge to a third-party wiki.' },
-      { title: 'Make knowledge usable by agents', body: 'Issue scoped MCP tokens so approved AI tools can retrieve and edit content with clear user-via-agent attribution.' },
-    ],
-    deepDive: [
-      {
-        eyebrow: 'Migration', title: 'What a Confluence move actually involves',
-        body: [
-          'WrenLore accepts Confluence export archives through its page importer. Start with one representative space, including nested pages and attachments, and inspect the result before scheduling a wider move. That catches the things every migration page tends to hand-wave away: unusual macros, embedded applications, legacy formatting and links that only make sense inside the old instance.',
-          'Keep the Confluence source available during validation. Page trees and ordinary content are the straightforward part. Marketplace apps and custom macros are organisation-specific, so there is no honest claim that a generic importer can reproduce all of them automatically.'
-        ],
-        bullets: ['Export and test one real space first', 'Check page hierarchy, attachments, internal links and permissions', 'Inventory custom macros and Marketplace apps separately', 'Plan a read-only window and final delta before cutover'],
-        link: { label: 'Review the WrenLore deployment guide', href: '/install/' }
-      },
-      {
-        eyebrow: 'Operations', title: 'A deployment your team can inspect',
-        body: [
-          'The documented stack is deliberately ordinary: the WrenLore application, PostgreSQL with pgvector, and Redis, built and run with Docker Compose. Put your own reverse proxy and TLS in front of it. Backups cover the Postgres volume and WrenLore file storage, and releases are deployed from source you can pin to a commit or tag.',
-          'That means the operational work belongs to your team. You choose the host, patch cadence, monitoring, backup retention and recovery test. For teams already running internal services, this is understandable infrastructure. For a team with no appetite to operate a database or application stack, Confluence Cloud may remain the practical choice.'
-        ],
-        bullets: ['PostgreSQL 18 with pgvector for AI Answers', 'Redis for application and collaborative runtime work', 'Docker Compose as the documented starting point', 'Operator-owned TLS, monitoring, backups and update windows']
+{
+  "slug": "confluence-alternative",
+  "title": "A self-hosted Confluence alternative for your company handbook",
+  "metaTitle": "WrenLore vs Confluence: a handbook for 100–200 people",
+  "description": "Compare Confluence and WrenLore as a company handbook grows from 100 to 200 colleagues: licence costs, access, assistant use and who runs the service.",
+  "intro": "When a shipment arrives damaged, the warehouse needs the current instructions, not a hunt through old tickets. Confluence Cloud makes sense if those instructions belong beside your Jira work. WrenLore gives them a home on a server your company controls.",
+  "problem": "Five teams start writing. Who else needs to read?",
+  "points": [
+    {
+      "title": "100 colleagues",
+      "body": "Five teams of twenty start with procedures they use every week: incoming deliveries, returns and purchase approvals."
+    },
+    {
+      "title": "130 colleagues",
+      "body": "Thirty managers join. They want to check the same instructions as their teams, even if they rarely edit a page."
+    },
+    {
+      "title": "200 colleagues",
+      "body": "Engineering adds inspection notes, accounting explains expenses, controlling documents approvals and ESG records how figures are collected."
+    },
+    {
+      "title": "What happens to the bill?",
+      "body": "WrenLore has no per-user software licence fee at any of these sizes. Hosting, backups, updates and any optional AI service are still your responsibility."
+    }
+  ],
+  "deepDive": [
+    {
+      "eyebrow": "Licence costs",
+      "title": "Price the Confluence Cloud team you actually have",
+      "body": [
+        "Confluence Cloud Free covers up to ten users, so it does not cover this rollout. Atlassian’s US pricing page displayed Standard at $5.78 and Premium at $11.16 per user per month on 26 November 2026. Those displayed rates are not quotes for all three team sizes.",
+        "Use the calculator for 100, 130 and 200 licensed users separately. Monthly volume pricing and annual user tiers can produce different totals. Check any identity subscription your organisation needs, and compare the result with the real cost of running WrenLore. If you already pay for those users, compare the extra cost, not the whole bill."
+      ],
+      "bullets": [],
+      "link": {
+        "label": "Check Confluence pricing",
+        "href": "https://www.atlassian.com/software/confluence/pricing"
       }
-    ],
-    comparisonTitle: 'WrenLore and Confluence: the operational trade-off',
-    comparisonLabel: 'Confluence Cloud',
-    comparison: [
-      { label: 'Deployment', wrenlore: 'Your servers or private cloud', conventional: 'Atlassian-hosted SaaS' }, { label: 'Source', wrenlore: 'AGPL-3.0, public releases', conventional: 'Proprietary' },
-      { label: 'Agent access', wrenlore: 'Scoped MCP credentials', conventional: 'Atlassian and Marketplace integrations' }, { label: 'Data control', wrenlore: 'Your database and storage', conventional: 'Atlassian account and selected region' },
-      { label: 'Operations', wrenlore: 'Your team patches, backs up and monitors', conventional: 'Atlassian operates the service' }, { label: 'Migration risk', wrenlore: 'Test macros and apps before cutover', conventional: 'No migration when staying on Confluence' },
-    ],
-    limitations: ['WrenLore does not promise compatibility with every Confluence macro or Marketplace app.', 'You operate the application, database, storage, backups and upgrades.', 'Teams that depend on Atlassian-specific workflows should prove those workflows in a pilot.', 'The public project is young; evaluate release cadence and support expectations against your procurement requirements.'],
-    questions: [
-      { question: 'Is WrenLore a drop-in replacement for every Confluence feature?', answer: 'No. WrenLore covers collaborative documentation, spaces, permissions, SSO, auditability and AI-assisted knowledge workflows. Teams should test specialist macros and custom Confluence apps before migrating.' },
-      { question: 'Can we migrate from Confluence Data Center or Server?', answer: 'WrenLore maintains a standalone importer for supported Confluence exports. Test an export in a non-production environment before planning the final cutover.' },
-      { question: 'Does WrenLore charge per user?', answer: 'The public software is licensed under AGPL-3.0. You provide and operate the infrastructure.' },
-    ],
-  },
-  {
-    slug: 'notion-alternative', title: 'An open-source Notion alternative for internal knowledge', metaTitle: 'Self-Hosted Notion Alternative for Teams | WrenLore',
-    description: 'A self-hosted Notion alternative for teams that need collaborative documents, controlled access, auditability and AI grounded in private knowledge.',
-    intro: 'WrenLore is built for operational knowledge: runbooks, decisions, policies and project context that need clear ownership and access controls.', problem: 'Documents that behave like company infrastructure',
-    points: [
-      { title: 'Real-time editing', body: 'Write together with a block editor, comments, diagrams and page history in shared team spaces.' }, { title: 'Private by deployment', body: 'Run the application, PostgreSQL and object storage under your own operational controls.' },
-      { title: 'Identity and permissions', body: 'Connect enterprise identity and apply access rules at the space and page level.' }, { title: 'Grounded AI', body: 'Ask questions across content you can access and keep answers tied to source pages instead of detached chatbot memory.' },
-    ],
-    deepDive: [
-      {
-        eyebrow: 'A different centre of gravity', title: 'Built for shared operational knowledge, not an all-purpose workspace',
-        body: [
-          'WrenLore covers the part of Notion many teams use as an internal wiki: nested pages, collaborative editing, comments, diagrams, attachments, page history and search. Spaces give departments or projects a clear home, while page-level restrictions deal with material that should not be visible to everyone in a space.',
-          'It does not try to reproduce every Notion surface. Teams using databases as lightweight CRMs, project trackers, forms or automation hubs should inventory those workflows before moving. A WrenLore page can hold a table, but that is different from a relational Notion database with filtered views and formulas.'
-        ],
-        bullets: ['Collaborative pages, comments and revision history', 'Spaces and page restrictions for team knowledge', 'Diagrams, tables, attachments and public sharing', 'No claim of feature parity with Notion databases or automations']
-      },
-      {
-        eyebrow: 'Control and AI', title: 'Keep the source pages and agent access under the same permissions',
-        body: [
-          'The application, PostgreSQL database and file storage run in infrastructure chosen by the operator. SAML SSO can tie access to an existing identity provider. Backups, TLS, monitoring and upgrades remain operational responsibilities rather than being hidden inside a SaaS subscription.',
-          'AI Answers works from WrenLore pages the requester can access. MCP connections use named, user-owned tokens with read-only or read/write mode, optional space scope, expiry and revocation. Agent edits retain user-via-agent attribution. That makes WrenLore useful when the wiki is also becoming a working knowledge source for automation.'
-        ],
-        bullets: ['Operator-controlled application, database and storage', 'SAML SSO plus workspace, space and page access rules', 'Grounded answers linked back to maintained pages', 'Scoped MCP connections rather than one shared administrator key'],
-        link: { label: 'Read the MCP access model', href: 'https://github.com/wrenlore/wrenlore/blob/master/docs/MCP.md' }
+    },
+    {
+      "eyebrow": "Access and AI",
+      "title": "What should the warehouse do with a damaged pallet?",
+      "body": [
+        "In WrenLore, a colleague signs in with their company account and lands in the default space. An administrator can add them to a department group. Keep sensitive pages restricted, even when the rest of the handbook is shared.",
+        "A colleague can ask a connected assistant to find the procedure using only pages they can read. Give it read-only access for lookups. If an authorised editor uses it to update a page, the history identifies the person and the assistant."
+      ],
+      "bullets": [],
+      "link": {
+        "label": "Explore the sample handbook",
+        "href": "/demo/"
       }
-    ],
-    comparisonTitle: 'WrenLore and Notion: choose the trade-off you actually need',
-    comparisonLabel: 'Notion',
-    comparison: [
-      { label: 'Hosting', wrenlore: 'Your servers or private cloud', conventional: 'Notion-hosted SaaS' },
-      { label: 'Primary shape', wrenlore: 'Governed team wiki and operational knowledge', conventional: 'Documents, databases and broad workspace tooling' },
-      { label: 'Agent access', wrenlore: 'Scoped MCP tokens with user-via-agent attribution', conventional: 'Notion API and integrations' },
-      { label: 'Identity', wrenlore: 'Local accounts and SAML configuration', conventional: 'Notion account and plan capabilities' },
-      { label: 'Operations', wrenlore: 'Your team patches, monitors and backs up', conventional: 'Notion operates the service' },
-      { label: 'Licence', wrenlore: 'AGPL-3.0 public source', conventional: 'Proprietary service' },
-    ],
-    limitations: ['WrenLore is not a drop-in replacement for Notion databases, formulas, forms, calendar views or automation workflows.', 'There is no managed WrenLore cloud service or commercial support plan today.', 'The operator owns upgrades, backups, TLS, monitoring and disaster recovery.', 'Test export and migration behaviour with representative Notion content before planning a cutover.'],
-    questions: [
-      { question: 'Is WrenLore designed as a personal notes app?', answer: 'Its main focus is shared operational knowledge for teams. Personal notes can live in a private space, but the product is strongest when knowledge needs collaboration and governance.' },
-      { question: 'Can WrenLore run without external AI providers?', answer: 'Yes. Core wiki functions do not require an AI provider. AI features depend on the provider and model configuration chosen by the operator.' },
-      { question: 'Who owns the stored content?', answer: 'The deployment operator controls the database and storage. WrenLore does not require content to be stored in a WrenLore-hosted cloud service.' },
-      { question: 'Can WrenLore replace Notion databases?', answer: 'No. WrenLore is strongest as a collaborative knowledge base. Teams relying on relational databases, formulas, filtered views or Notion automations should keep those workflows elsewhere or evaluate a separate replacement.' },
-      { question: 'Does WrenLore provide a hosted migration service?', answer: 'No. The public project provides self-hosted software and documentation. Operators should test their own export and import process with representative content.' },
-    ],
-  },
+    },
+    {
+      "eyebrow": "Service and support",
+      "title": "Who looks after the handbook?",
+      "body": [
+        "Confluence Cloud runs the hosted service. With WrenLore, you choose where the handbook lives, including a server in Europe, and your team handles upgrades and recovery. If you connect an external AI provider, check where it processes the content you send.",
+        "Anyone can report a WrenLore product issue on GitHub at any time. Reports are reviewed manually, without a guaranteed response time. WrenLore Services plans to offer email support."
+      ],
+      "bullets": [],
+      "link": {
+        "label": "WrenLore product support on GitHub",
+        "href": "https://github.com/wrenlore/wrenlore/issues"
+      }
+    }
+  ],
+  "comparisonTitle": "Where the two approaches differ",
+  "comparisonLabel": "Confluence Cloud",
+  "comparison": [
+    {
+      "label": "Best reason to stay",
+      "wrenlore": "A shared handbook you operate without seat fees",
+      "conventional": "Documentation tied to Jira and Atlassian workflows"
+    },
+    {
+      "label": "Operations",
+      "wrenlore": "Your choice of host; your backups and upgrades",
+      "conventional": "Vendor-operated cloud service"
+    }
+  ],
+  "limitations": [
+    "Keep Confluence if Jira links, Marketplace apps or custom macros are central to daily work. The standalone WrenLore importer targets Confluence 8.5.1 XML exports; do not assume Cloud exports or specialist macros transfer.",
+    "If nobody owns backups and updates, a hosted service may cost less overall."
+  ],
+  "questions": [
+    {
+      "question": "Can occasional readers use WrenLore without another seat purchase?",
+      "answer": "Yes. The public WrenLore software has no per-user fee. You still control who may read each space and page."
+    }
+  ]
+},
+{
+  "slug": "notion-alternative",
+  "title": "A self-hosted Notion alternative for your company handbook",
+  "metaTitle": "WrenLore vs Notion: a handbook for 100–200 people",
+  "description": "Compare Notion and WrenLore as a company handbook grows from 100 to 200 colleagues: licence costs, access, assistant use and who runs the service.",
+  "intro": "A project board tells you that a purchase is waiting for approval. The handbook tells you who can approve it. If people need both in one workspace, Notion has a strong case. If the missing piece is a handbook everyone can read, compare the cost of giving everyone a seat.",
+  "problem": "Five teams start writing. Who else needs to read?",
+  "points": [
+    {
+      "title": "100 colleagues",
+      "body": "Five teams of twenty start with procedures they use every week: incoming deliveries, returns and purchase approvals."
+    },
+    {
+      "title": "130 colleagues",
+      "body": "Thirty managers join. They want to check the same instructions as their teams, even if they rarely edit a page."
+    },
+    {
+      "title": "200 colleagues",
+      "body": "Engineering adds inspection notes, accounting explains expenses, controlling documents approvals and ESG records how figures are collected."
+    },
+    {
+      "title": "What happens to the bill?",
+      "body": "WrenLore has no per-user software licence fee at any of these sizes. Hosting, backups, updates and any optional AI service are still your responsibility."
+    }
+  ],
+  "deepDive": [
+    {
+      "eyebrow": "Licence costs",
+      "title": "What would 100, 130 or 200 Notion members cost?",
+      "body": [
+        "At the displayed US list rates of $10 per seat per month for Plus and $20 for Business, 100 paid members work out to $12,000 or $24,000 per year. At 130 members: $15,600 or $31,200. At 200: $24,000 or $48,000.",
+        "These are annualised illustrations at the rates checked on 26 November 2026, before tax or discounts. They assume paid workspace members rather than guests invited to particular pages. Check your billing interval and whether you need Business for company sign-in via SAML."
+      ],
+      "bullets": [],
+      "link": {
+        "label": "Check Notion pricing",
+        "href": "https://www.notion.com/pricing"
+      }
+    },
+    {
+      "eyebrow": "Access and AI",
+      "title": "Who can approve this purchase?",
+      "body": [
+        "In WrenLore, a colleague signs in with their company account and lands in the default space. An administrator can add them to a department group. Keep sensitive pages restricted, even when the rest of the handbook is shared.",
+        "A colleague can ask a connected assistant to find the procedure using only pages they can read. Give it read-only access for lookups. If an authorised editor uses it to update a page, the history identifies the person and the assistant."
+      ],
+      "bullets": [],
+      "link": {
+        "label": "Explore the sample handbook",
+        "href": "/demo/"
+      }
+    },
+    {
+      "eyebrow": "Service and support",
+      "title": "Who looks after the handbook?",
+      "body": [
+        "Notion runs the hosted service. With WrenLore, you choose where the handbook lives, including a server in Europe, and your team handles upgrades and recovery. If you connect an external AI provider, check where it processes the content you send.",
+        "Anyone can report a WrenLore product issue on GitHub at any time. Reports are reviewed manually, without a guaranteed response time. WrenLore Services plans to offer email support."
+      ],
+      "bullets": [],
+      "link": {
+        "label": "WrenLore product support on GitHub",
+        "href": "https://github.com/wrenlore/wrenlore/issues"
+      }
+    }
+  ],
+  "comparisonTitle": "Where the two approaches differ",
+  "comparisonLabel": "Notion",
+  "comparison": [
+    {
+      "label": "Best reason to stay",
+      "wrenlore": "A shared handbook you operate without seat fees",
+      "conventional": "Databases, project boards and documents in one workspace"
+    },
+    {
+      "label": "Operations",
+      "wrenlore": "Your choice of host; your backups and upgrades",
+      "conventional": "Vendor-operated cloud service"
+    }
+  ],
+  "limitations": [
+    "Stay with Notion if your teams run projects using database views, relations, formulas or automations. Moving written procedures does not recreate those workflows.",
+    "If nobody owns backups and updates, a hosted service may cost less overall."
+  ],
+  "questions": [
+    {
+      "question": "Can occasional readers use WrenLore without another seat purchase?",
+      "answer": "Yes. The public WrenLore software has no per-user fee. You still control who may read each space and page."
+    }
+  ]
+},
   {
     slug: 'self-hosted-ai-knowledge-base', title: 'A self-hosted AI knowledge base with source control', metaTitle: 'Self-Hosted AI Knowledge Base | WrenLore',
     description: 'WrenLore combines a collaborative wiki with grounded AI search, citations, private deployment and permission-aware access for people and agents.',
