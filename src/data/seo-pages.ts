@@ -1,4 +1,111 @@
 export const seoPages = [
+{
+  "slug": "docmost-alternative",
+  "title": "A Docmost alternative for a handbook everyone can use",
+  "metaTitle": "WrenLore vs Docmost: a handbook for 100–200 people",
+  "description": "Compare WrenLore and Docmost for a growing company handbook: company sign-in, private pages, AI assistants and licence costs at 100, 130 and 200 seats.",
+  "intro": "Five teams of twenty start a handbook. A colleague can look up who approves a purchase or how to handle a return without waiting for the person who wrote the policy. What happens when the rest of the company wants in?",
+  "problem": "One handbook, from 100 colleagues to 200",
+  "points": [
+    {
+      "title": "100 people: five teams",
+      "body": "A German manufacturer gives its first five teams one place to keep procedures current. At 100 licensed seats, Docmost Business lists at $7,200 a year."
+    },
+    {
+      "title": "130 people: managers join",
+      "body": "Thirty managers want the same up-to-date answers. At 130 licensed seats, the annualised Business licence cost is $9,360."
+    },
+    {
+      "title": "200 people: the wider business",
+      "body": "Engineering adds drawings and instructions, accounting explains expenses, controlling documents approvals and ESG records how figures are collected. At 200 seats, Business lists at $14,400 a year."
+    },
+    {
+      "title": "What changes with WrenLore?",
+      "body": "There is no WrenLore per-user software fee at any of those sizes. The people who only open the handbook once a month can still have access. Someone still has to run the service and keep the pages current."
+    }
+  ],
+  "deepDive": [
+    {
+      "eyebrow": "The licence calculation",
+      "title": "When does the seat price matter?",
+      "body": [
+        "Docmost Community is free and includes collaborative pages, spaces and search. If that meets your needs, there is no Business licence bill to avoid.",
+        "For company sign-in, page-level restrictions or built-in AI assistant access, Docmost lists Business at US$6 per seat per month billed annually, with a ten-seat minimum (checked 26 November 2026). The examples assume every named user needs a licensed seat for a full year at list price. They are not quotes or total operating costs."
+      ],
+      "bullets": [
+        "Both products can run on your own servers in Europe.",
+        "Budget separately for hosting, backups, updates and any AI provider."
+      ],
+      "link": {
+        "label": "Check Docmost’s current editions and pricing",
+        "href": "https://docmost.com/pricing"
+      }
+    },
+    {
+      "eyebrow": "An everyday example",
+      "title": "Who can approve this refund?",
+      "body": [
+        "A new colleague can ask their assistant and follow the answer back to the policy. In WrenLore the assistant can only read pages that person can see. Give it read-only access and it cannot change the rules.",
+        "When an authorised editor uses an assistant to change the policy, the history names both the editor and the assistant. If someone else edited the page in the meantime, the assistant must reread it. Docmost also offers permission-aware, read-only assistant access; the difference is that its built-in connection requires Business or Enterprise."
+      ],
+      "bullets": [
+        "Try the public demo with sample pages and read-only assistant access."
+      ],
+      "link": {
+        "label": "Try WrenLore’s demo",
+        "href": "/demo/"
+      }
+    },
+    {
+      "eyebrow": "Choosing between them",
+      "title": "When Docmost is the better fit",
+      "body": [
+        "Choose Docmost Community if your team already likes it and needs a straightforward shared wiki. Docmost Business includes email support, and Enterprise offers automatic staff provisioning, security-event streaming and priority support. Those can matter more than the seat cost.",
+        "Docmost supports an OAuth sign-in flow for assistants. WrenLore currently uses a named access token. Check what your assistant supports before choosing."
+      ],
+      "bullets": [],
+      "link": {
+        "label": "Read Docmost’s assistant connection guide",
+        "href": "https://docmost.com/docs/user-guide/mcp"
+      }
+    }
+  ],
+  "comparisonTitle": "What comes with each edition?",
+  "comparisonLabel": "Docmost",
+  "comparison": [
+    {
+      "label": "Company sign-in",
+      "wrenlore": "SAML included",
+      "conventional": "SAML in Business"
+    },
+    {
+      "label": "Restrict individual pages",
+      "wrenlore": "Included in the public software",
+      "conventional": "Granular page permissions in Business"
+    },
+    {
+      "label": "Native assistant connection (MCP)",
+      "wrenlore": "Included, with named read-only or editing connections",
+      "conventional": "Business or Enterprise"
+    },
+    {
+      "label": "Ongoing costs",
+      "wrenlore": "No per-user licence fee; you operate it",
+      "conventional": "Community free; paid editions add features and support"
+    }
+  ],
+  "limitations": [
+    "WrenLore derives from Docmost Community and is independent of Docmost.",
+    "Self-hosting alone does not keep data in Europe if you send content to a remote AI provider."
+  ],
+  "questions": [
+    {
+      "question": "Do we need AI to use the handbook?",
+      "answer": "No. Your team can write, search and read pages without connecting a model."
+    }
+  ]
+}
+,
   {
     slug: 'confluence-alternative', title: 'A self-hosted, open-source Confluence alternative', metaTitle: 'Open-Source Confluence Alternative | WrenLore',
     description: 'Move team knowledge from Confluence to an open-source, self-hosted wiki with SSO, audit trails, AI search and governed agent access.',
